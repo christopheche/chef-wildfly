@@ -23,8 +23,7 @@
 wildfly = node['wildfly']
 
 # => Update System
-include_recipe 'apt' if platform?('ubuntu', 'debian')
-include_recipe 'yum' if platform_family?('rhel')
+include_recipe 'yum'
 
 # Create file to indicate user upgrade change (Applicable to 0.1.16 to 0.1.17 upgrade)
 file ::File.join(wildfly['base'], '.chef_useracctchange') do

@@ -21,13 +21,30 @@
 # =>  JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
 
 # => The defaults are adjustable here
-default['wildfly']['java_opts']['xmx'] = '512m'
-default['wildfly']['java_opts']['xms'] = '64m'
+default['wildfly']['java_opts']['xmx'] = '2048m'
+default['wildfly']['java_opts']['xms'] = '2048m'
 default['wildfly']['java_opts']['xx_maxpermsize'] = '256m'
 default['wildfly']['java_opts']['preferipv4'] = 'true'
 default['wildfly']['java_opts']['headless'] = 'true'
 
 # => Specify other java options in this space-deliniated array.
 default['wildfly']['java_opts']['other'] = %w(
-
+  <option value="-server"/>
+  <option value="-XX:+DoEscapeAnalysis"/>
+  <option value="-XX:+UseCompressedOops"/>
+  <option value="-XX:+UseConcMarkSweepGC"/>
+  <option value="-XX:+CMSClassUnloadingEnabled"/>
+  <option value="-XX:+UseParNewGC"/>
+  <option value="-XX:+ExplicitGCInvokesConcurrent"/>
+  <option value="-XX:CMSInitiatingOccupancyFraction=80"/>
+  <option value="-XX:CMSIncrementalSafetyFactor=20"/>
+  <option value="-XX:+UseCMSInitiatingOccupancyOnly"/>
+  <option value="-XX:MaxTenuringThreshold=32"/>
+  <option value="-XX:ParallelGCThreads=2"/>
+  <option value="-XX:+UseLargePages"/>
+  <option value="-XX:+AggressiveOpts"/>
+  <option value="-verbose:gc"/>
+  <option value="-Xloggc:gc.log"/>
+  <option value="-XX:+PrintGCDetails"/>
+  <option value="-XX:+PrintGCTimeStamps"/>
 )

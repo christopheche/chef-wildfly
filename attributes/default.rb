@@ -16,9 +16,9 @@
 
 # => Wildfly Configuration
 # => Source
-default['wildfly']['version'] = '10.1.0'
-default['wildfly']['url'] = 'http://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.tar.gz'
-default['wildfly']['checksum'] = '80781609be387045273f974662dadf7f64ad43ee93395871429bc6b7786ec8bc'
+default['wildfly']['version'] = '8.2.1'
+default['wildfly']['url'] = 'http://download.jboss.org/wildfly/8.2.1.Final/wildfly-8.2.1.Final.tar.gz'
+default['wildfly']['checksum'] = '845bc298ef9d72cf91b8781286a64554dea353df9d555391720635f32b73717c'
 
 # => Base Directory
 default['wildfly']['base'] = '/opt/wildfly'
@@ -38,7 +38,7 @@ default['wildfly']['enforce_config'] = false
 
 # => Standalone Mode Configuration
 # => (standalone/ha.xml, standalone-full/ha/ha-aws.xml)
-default['wildfly']['sa']['conf'] = 'standalone-full.xml'
+default['wildfly']['sa']['conf'] = 'standalone.xml'
 
 # => AWS S3_Ping Configuration
 default['wildfly']['aws']['s3_access_key'] = 'a'

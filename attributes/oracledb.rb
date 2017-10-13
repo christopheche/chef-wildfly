@@ -1,7 +1,5 @@
 # encoding: UTF-8
-#
-# Cookbook Name:: wildfly
-# Recipe:: default
+# rubocop:disable LineLength
 #
 # Copyright (C) 2014 Brian Dwyer - Intelligent Digital Services
 #
@@ -18,8 +16,13 @@
 # limitations under the License.
 #
 
-include_recipe 'java' if node['wildfly']['install_java']
-include_recipe 'wildfly::install'
-include_recipe 'wildfly::mysql_connector' if node['wildfly']['mysql']['enabled']
-include_recipe 'wildfly::postgres_connector' if node['wildfly']['postgresql']['enabled']
-include_recipe 'wildfly::oracledb_connector' if node['wildfly']['oracledb']['enabled']
+# => oracledb Database Configuration
+# => oracledb ConnectorJ
+default['wildfly']['oracledb']['enabled'] = true
+default['wildfly']['oracledb']['url'] = http://download.oracle.com/otn/utilities_drivers/jdbc/121020/ojdbc7.jar'
+default['wildfly']['oracledb']['checksum'] = '7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2'
+
+# => oracledb ConnectorJ JDBC Module Name
+default['wildfly']['oracledb']['mod_name'] = 'com.oracle'
+# => oracledb ConnectorJ Module Dependencies
+default['wildfly']['oracledb']['mod_deps'] = ['javax.api', 'javax.transaction.api']

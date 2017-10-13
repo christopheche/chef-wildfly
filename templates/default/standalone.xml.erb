@@ -167,6 +167,11 @@
                         <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
             <%- end %>
+            <%- if node['wildfly']['oracledb']['enabled'] %>
+                    <driver name="oracledriver" module="com.oracle.db">
+                        <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+                    </driver>
+            <%- end %>
                 </drivers>
             </datasources>
         </subsystem>
@@ -434,7 +439,7 @@
         <interface name="unsecure">
             <!--
               ~  Used for IIOP sockets in the standard configuration.
-              ~                  To secure JacORB you need to setup SSL 
+              ~                  To secure JacORB you need to setup SSL
               -->
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
