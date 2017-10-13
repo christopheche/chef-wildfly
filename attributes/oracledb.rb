@@ -20,7 +20,7 @@
 # => oracledb ConnectorJ
 default['wildfly']['oracledb']['enabled'] = true
 default['wildfly']['oracledb']['accept_oracle_download_terms'] = true
-default['wildfly']['oracledb']['url'] = 'http://download.oracle.com/otn/utilitiesdrivers/jdbc/121020/ojdbc7.jar'
+default['wildfly']['oracledb']['url'] = 'http://download.oracle.com/otn/utilities_drivers/jdbc/121020/ojdbc7.jar'
 default['wildfly']['oracledb']['checksum'] = '7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2'
 
 # => oracledb ConnectorJ JDBC Module Name
