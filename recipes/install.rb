@@ -22,9 +22,6 @@
 # => Shorten Hashes
 wildfly = node['wildfly']
 
-# => Update System
-include_recipe 'yum'
-
 # Create file to indicate user upgrade change (Applicable to 0.1.16 to 0.1.17 upgrade)
 file ::File.join(wildfly['base'], '.chef_useracctchange') do
   action :touch
