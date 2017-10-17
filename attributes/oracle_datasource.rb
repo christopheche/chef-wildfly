@@ -28,7 +28,7 @@ default['wildfly']['oracle']['jndi']['datasources'] = [
     db_user: 'APP_SSM',
     db_pass: 'APP_SSM',
     pool_min: '10',
-    pool_max: '200',
+    pool_max: '200'
   },
   {
     jndi_name: 'java:/jdbc/service/QUARTZ',
@@ -39,7 +39,7 @@ default['wildfly']['oracle']['jndi']['datasources'] = [
     db_user: 'APP_SSM',
     db_pass: 'APP_SSM',
     pool_min: '10',
-    pool_max: '60',
+    pool_max: '60'
   }
   ,
   {
@@ -51,6 +51,6 @@ default['wildfly']['oracle']['jndi']['datasources'] = [
     db_user: 'LSCDM',
     db_pass: 'LSCDM',
     pool_min: '0',
-    pool_max: '10',
+    pool_max: '10'
   }
 ]
