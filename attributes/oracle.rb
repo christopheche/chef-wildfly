@@ -16,14 +16,14 @@
 # limitations under the License.
 #
 
-# => oracledb Database Configuration
-# => oracledb ConnectorJ
-default['wildfly']['oracledb']['enabled'] = true
-default['wildfly']['oracledb']['accept_oracle_download_terms'] = true
-default['wildfly']['oracledb']['url'] = 'http://download.oracle.com/otn/utilities_drivers/jdbc/121020/ojdbc7.jar'
-default['wildfly']['oracledb']['checksum'] = '7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2'
+# => oracle Database Configuration
+# => oracle ConnectorJ
+default['wildfly']['oracle']['enabled'] = true
+default['wildfly']['oracle']['accept_oracle_download_terms'] = true
+default['wildfly']['oracle']['url'] = 'http://download.oracle.com/otn/utilities_drivers/jdbc/121020/ojdbc7.jar'
+default['wildfly']['oracle']['checksum'] = '7c9b5984b2c1e32e7c8cf3331df77f31e89e24c2'
 
-# => oracledb ConnectorJ JDBC Module Name
-default['wildfly']['oracledb']['mod_name'] = 'com.oracle'
-# => oracledb ConnectorJ Module Dependencies
-default['wildfly']['oracledb']['mod_deps'] = ['javax.api', 'javax.transaction.api']
+# => oracle ConnectorJ JDBC Module Name
+default['wildfly']['oracle']['mod_name'] = 'com.oracle'
+# => oracle ConnectorJ Module Dependencies
+default['wildfly']['oracle']['mod_deps'] = ['javax.api', 'javax.transaction.api']

@@ -21,4 +21,4 @@
 include_recipe 'wildfly::install'
 include_recipe 'wildfly::mysql_connector' if node['wildfly']['mysql']['enabled']
 include_recipe 'wildfly::postgres_connector' if node['wildfly']['postgresql']['enabled']
-include_recipe 'wildfly::oracledb_connector' if node['wildfly']['oracledb']['enabled']
+include_recipe 'wildfly::oracle_connector' if node['wildfly']['oracle']['enabled']

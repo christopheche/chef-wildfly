@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Managed by Chef - local changes may be overwritten -->
+
+<datasources>
+  <datasource jndi-name="<%= @jndi_name %>" pool-name="<%= @pool_name %>" enabled="true" use-java-context="true">
+    <connection-url>jdbc:oracle:thin:@<%= @oracle_server %>:<%= @oracle_port %>/<%= @oracle_db_name %></connection-url>
+    <driver>oracledriver</driver>
+    <pool>
+      <min-pool-size><%= @oracle_pool_min %></min-pool-size>
+      <max-pool-size><%= @oracle_pool_max %></max-pool-size>
+      <prefill>true</prefill>
+      <flush-strategy>IdleConnections</flush-strategy>
+      <allow-multiple-users/>
+    </pool>
+    <security>
+      <user-name><%= @oracle_user %></user-name>
+      <password><%= @oracle_pass %></password>
+    </security>
+    <validation>
+      <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+      <validate-on-match>false</validate-on-match>
+      <background-validation>true</background-validation>
+      <background-validation-millis>120000</background-validation-millis>
+      <use-fast-fail>true</use-fast-fail>
+      <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+      <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+    </validation>
+    <timeout>
+      <blocking-timeout-millis>5000</blocking-timeout-millis>
+      <idle-timeout-minutes>10</idle-timeout-minutes>
+      <use-try-lock>10</use-try-lock>
+    </timeout>
+    <statement>
+      <prepared-statement-cache-size>30</prepared-statement-cache-size>
+      <share-prepared-statements>true</share-prepared-statements>
+    </statement>
+  </datasource>
+</datasources>

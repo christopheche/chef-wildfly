@@ -26,25 +26,25 @@
 
 # => Shorten Hashes
 wildfly = node['wildfly']
-oracledb = node['wildfly']['oracledb']
+oracle = node['wildfly']['oracle']
 
-oracledb['jndi']['datasources'].each do |source|
-  # => Configure oracledb Datasource
+oracle['jndi']['datasources'].each do |source|
+  # => Configure oracle Datasource
   template ::File.join(wildfly['base'], 'standalone', 'deployments', "#{::File.basename(source['jndi_name'])}-ds.xml") do
-    source 'oracledb-ds.xml.erb'
+    source 'oracle-ds.xml.erb'
     user wildfly['user']
     group wildfly['group']
     mode '0600'
     variables(
       jndi_name: source['jndi_name'],
-      oracledb_server: source['server'],
-      oracledb_port: source['port'],
-      oracledb_db_name: source['db_name'],
-      oracledb_user: source['db_user'],
-      oracledb_pass: source['db_pass'],
-      oracledb_pool_min: '5',
-      oracledb_pool_max: '20',
-      oracledb_timeout: '5'
+      pool_name: source['pool_name'],
+      oracle_server: source['server'],
+      oracle_port: source['port'],
+      oracle_db_name: source['db_name'],
+      oracle_user: source['db_user'],
+      oracle_pass: source['db_pass'],
+      oracle_pool_min: source['pool_min'],
+      oracle_pool_max: source['pool_max'],
     )
     action :create
   end
