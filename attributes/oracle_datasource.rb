@@ -40,8 +40,7 @@ default['wildfly']['oracle']['jndi']['datasources'] = [
     db_pass: 'APP_SSM',
     pool_min: '10',
     pool_max: '60'
-  }
-  ,
+  },
   {
     jndi_name: 'java:/jdbc/service/CDM',
     pool_name: 'dataSourceCDM',
