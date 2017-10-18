@@ -34,7 +34,6 @@ default['wildfly']['java_opts']['other'] = %w(
   -XX:+UseCompressedOops
   -XX:+UseConcMarkSweepGC
   -XX:+CMSClassUnloadingEnabled
-  -XX:+UseParNewG
   -XX:+ExplicitGCInvokesConcurrent
   -XX:CMSInitiatingOccupancyFraction=80
   -XX:CMSIncrementalSafetyFactor=20
