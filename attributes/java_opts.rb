@@ -29,22 +29,22 @@ default['wildfly']['java_opts']['headless'] = 'true'
 
 # => Specify other java options in this space-deliniated array.
 default['wildfly']['java_opts']['other'] = %w(
-  <option value="-server"/>
-  <option value="-XX:+DoEscapeAnalysis"/>
-  <option value="-XX:+UseCompressedOops"/>
-  <option value="-XX:+UseConcMarkSweepGC"/>
-  <option value="-XX:+CMSClassUnloadingEnabled"/>
-  <option value="-XX:+UseParNewGC"/>
-  <option value="-XX:+ExplicitGCInvokesConcurrent"/>
-  <option value="-XX:CMSInitiatingOccupancyFraction=80"/>
-  <option value="-XX:CMSIncrementalSafetyFactor=20"/>
-  <option value="-XX:+UseCMSInitiatingOccupancyOnly"/>
-  <option value="-XX:MaxTenuringThreshold=32"/>
-  <option value="-XX:ParallelGCThreads=2"/>
-  <option value="-XX:+UseLargePages"/>
-  <option value="-XX:+AggressiveOpts"/>
-  <option value="-verbose:gc"/>
-  <option value="-Xloggc:gc.log"/>
-  <option value="-XX:+PrintGCDetails"/>
-  <option value="-XX:+PrintGCTimeStamps"/>
+  -server
+  -XX:+DoEscapeAnalysis
+  -XX:+UseCompressedOops
+  -XX:+UseConcMarkSweepGC
+  -XX:+CMSClassUnloadingEnabled
+  -XX:+UseParNewG
+  -XX:+ExplicitGCInvokesConcurrent
+  -XX:CMSInitiatingOccupancyFraction=80
+  -XX:CMSIncrementalSafetyFactor=20
+  -XX:+UseCMSInitiatingOccupancyOnly
+  -XX:MaxTenuringThreshold=32
+  -XX:ParallelGCThreads=2
+  -XX:+UseLargePages
+  -XX:+AggressiveOpts
+  -verbose:gc
+  -Xloggc:gc.log
+  -XX:+PrintGCDetails
+  -XX:+PrintGCTimeStamps
 )
