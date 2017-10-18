@@ -38,7 +38,6 @@ default['wildfly']['java_opts']['other'] = %w(
   -XX:CMSInitiatingOccupancyFraction=80
   -XX:CMSIncrementalSafetyFactor=20
   -XX:+UseCMSInitiatingOccupancyOnly
-  -XX:MaxTenuringThreshold=32
   -XX:ParallelGCThreads=2
   -XX:+UseLargePages
   -XX:+AggressiveOpts
