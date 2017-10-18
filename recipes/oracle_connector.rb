@@ -21,42 +21,32 @@
 
 # => Make Oracle Connector/J Information Retrievable
 node.default['wildfly']['oracle']['version'] = ::File.basename(node['wildfly']['oracle']['url'], '.jar')
-node.default['wildfly']['oracle']['jar'] = "#{node['wildfly']['oracle']['version']}-bin.jar"
+node.default['wildfly']['oracle']['jar'] = "#{node['wildfly']['oracle']['version']}.jar"
 
 # => Shorten Hashes
 wildfly = node['wildfly']
-Oracle = node['wildfly']['oracle']
+oracle = node['wildfly']['oracle']
 
 # => Shorten Connector/J Directory Name
-connectorj_dir = ::File.join(wildfly['base'], 'modules', 'system', 'layers', 'base', 'com', 'oracle', 'main')
+oracle_dir = ::File.join(wildfly['base'], 'modules', 'system', 'layers', 'base', 'com', 'oracle', 'main')
 
-# => Create oracle Connector/J Directory
-directory connectorj_dir do
+# => Create oracle Directory
+directory oracle_dir do
   owner wildfly['user']
   group wildfly['group']
   mode '0755'
   recursive true
 end
 
-# => Download Oracle Connector/J Tarball
-remote_file "#{Chef::Config[:file_cache_path]}/#{oracle['version']}.jar" do
-  source Oracle['url']
-  checksum Oracle['checksum']
+# => Download Oracle driver
+remote_file "#{oracle_dir}/#{oracle['jar']}" do
+  source oracle['url']
+  checksum oracle['checksum']
   action :create
-  notifies :run, 'bash[Extract ConnectorJ]', :immediately
 end
 
-# => Extract Oracle Connector/J
-bash 'Extract ConnectorJ' do
-  cwd Chef::Config[:file_cache_path]
-  code <<-EOF
-  chown #{wildfly['user']}:#{wildfly['group']} -R #{connectorj_dir}/../
-  EOF
-  not_if { ::File.exist?(::File.join(connectorj_dir, oracle['jar'])) }
-end
-
-# => Configure Oracle Connector/J Module
-template ::File.join(connectorj_dir, 'module.xml') do
+# => Configure Oracle Module
+template ::File.join(oracle_dir, 'module.xml') do
   source 'module.xml.erb'
   user wildfly['user']
   group wildfly['group']
@@ -67,5 +57,5 @@ template ::File.join(connectorj_dir, 'module.xml') do
     module_dependencies: oracle['mod_deps']
   )
   action :create
-  notifies :restart, "service[#{wildfly['service']}]", :immediately
+  notifies :restart, "service[#{wildfly['service']}]", :delayed
 end
