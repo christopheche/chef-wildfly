@@ -57,5 +57,5 @@ template ::File.join(oracle_dir, 'module.xml') do
     module_dependencies: oracle['mod_deps']
   )
   action :create
-  notifies :restart, "service[#{wildfly['service']}]", :delayed
+#  notifies :restart, "service[#{wildfly['service']}]", :delayed
 end
