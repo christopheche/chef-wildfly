@@ -41,7 +41,6 @@ end
 # => Download Oracle driver
 remote_file "#{oracle_dir}/#{oracle['jar']}" do
   source oracle['url']
-  checksum oracle['checksum']
   action :create
 end
 
