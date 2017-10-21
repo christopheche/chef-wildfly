@@ -151,8 +151,7 @@
                   </driver>
                 <%- end %>
                 <%- if node['wildfly']['oracle']['enabled'] %>
-                  <driver name="OracleJDBCDriver" module="oracle.jdbc"/>
-                  <driver name="oracledriver" module="com.oracle.db">
+                  <driver name="oracledriver" module="com.oracle">
                     <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
                   </driver>
                 <%- end %>
