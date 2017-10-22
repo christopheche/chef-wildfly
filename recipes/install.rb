@@ -66,7 +66,9 @@ when 'debian'
   end
 end
 
-package 'java-1.8.0'
+package 'java-1.8.0' do
+  action :install
+end
 
 # => Download Wildfly Tarball
 remote_file "#{Chef::Config[:file_cache_path]}/#{wildfly['version']}.tar.gz" do
