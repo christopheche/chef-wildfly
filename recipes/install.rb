@@ -54,20 +54,12 @@ directory wildfly['base'] do
   recursive true
 end
 
-# => Ensure LibAIO Present for Java NIO Journal
-case node['platform_family']
-when 'rhel'
-  package 'libaio' do
-    action :install
-  end
-when 'debian'
-  package 'libaio1' do
-    action :install
-  end
-end
-
 package ["java-1.8.0-openjdk","java-1.8.0-openjdk-devel"] do
   action :install
+end
+
+package 'java-1.7.0-openjdk' do
+  action :remove
 end
 
 # => Download Wildfly Tarball
