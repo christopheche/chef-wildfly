@@ -66,18 +66,7 @@ when 'debian'
   end
 end
 
-
-# => Ensure LibAIO Present for Java NIO Journal
-case node['platform_family']
-when 'rhel'
-  package 'java-1.8.0' do
-    action :install
-  end
-  package 'java-1.7.0' do
-    action :remove
-  end
-end
-
+yum_package 'java-1.8.0'
 
 # => Download Wildfly Tarball
 remote_file "#{Chef::Config[:file_cache_path]}/#{wildfly['version']}.tar.gz" do
