@@ -60,7 +60,8 @@ default['wildfly']['int']['mgmt']['http_port'] = '9990'
 default['wildfly']['int']['mgmt']['https_port'] = '9993'
 
 default['wildfly']['int']['pub']['bind'] = '0.0.0.0'
-default['wildfly']['int']['pub']['http_port'] = '8080'
+default['wildfly']['int']['pub']['http_port'] = '20065'
+#default['wildfly']['int']['pub']['http_port'] = '8080'
 default['wildfly']['int']['pub']['https_port'] = '8443'
 
 default['wildfly']['int']['wsdl']['bind'] = '0.0.0.0'
