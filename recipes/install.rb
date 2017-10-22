@@ -69,7 +69,7 @@ end
 # => Download Wildfly Tarball
 remote_file "#{Chef::Config[:file_cache_path]}/#{wildfly['version']}.tar.gz" do
   source wildfly['url']
-  checksum wildfly['checksum']
+  #Schecksum wildfly['checksum']
   action :create
   notifies :run, 'bash[Extract Wildfly]', :immediately
 end
